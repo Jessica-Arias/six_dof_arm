@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="six_dof_arm">
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0.0363930242591976 6.45201149451768E-11 0.0260666027755772" rpy="0 0 0" />
+            <mass value="0.176240055489149" />
+            <inertia ixx="0.000178228991855255" ixy="-8.54118248814573E-13" ixz="2.03518572522745E-09" iyy="0.000490358793756337" iyz="-7.80302776386442E-16" izz="0.000658509890835833" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="link_1">
+        <inertial>
+            <origin xyz="0.000332594811598422 0.0194522121021043 0.000100872463120016" rpy="0 0 0" />
+            <mass value="0.0618861156624882" />
+            <inertia ixx="1.54575361778533E-05" ixy="-1.52385222766237E-07" ixz="-2.04021429533956E-09" iyy="2.69387950646279E-05" iyz="-3.31430371573665E-13" izz="1.43966345039867E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_1" type="revolute">
+        <origin xyz="0.0575229584695751 0 0.052" rpy="1.5707963267949 0 1.5707963267949" />
+        <parent link="base_link" />
+        <child link="link_1" />
+        <axis xyz="0 1 0" />
+        <limit lower="-2.355" upper="2.355" effort="20" velocity="3" />
+    </joint>
+    <link name="link_2">
+        <inertial>
+            <origin xyz="-0.0193159251698881 -0.0475283878907469 -9.61111291741812E-06" rpy="0 0 0" />
+            <mass value="0.0184057236168136" />
+            <inertia ixx="7.20178640545149E-06" ixy="-3.04702107406275E-17" ixz="1.34498156137871E-14" iyy="1.03303809898291E-05" iyz="-8.36377985456854E-15" izz="1.5763028604721E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_2" type="revolute">
+        <origin xyz="-0.0214999999999866 0.028 -0.00965500000003039" rpy="0 0 3.14159265358979" />
+        <parent link="link_1" />
+        <child link="link_2" />
+        <axis xyz="1 0 0" />
+        <limit lower="-0.785" upper="1.57" effort="20" velocity="3" />
+    </joint>
+    <link name="link_3">
+        <inertial>
+            <origin xyz="0.0196383906944473 -0.0199179094137117 0.00130981188024093" rpy="0 0 0" />
+            <mass value="0.0523337661318821" />
+            <inertia ixx="1.16148697768604E-05" ixy="2.03518716392041E-09" ixz="1.52385235585513E-07" iyy="1.19296859715342E-05" iyz="-1.29156199881211E-07" izz="1.95443032903135E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_3.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_3.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_3" type="revolute">
+        <origin xyz="-0.0015 -0.104 0" rpy="3.14159265358979 0 3.14159265358979" />
+        <parent link="link_2" />
+        <child link="link_3" />
+        <axis xyz="-1 0 0" />
+        <limit lower="-2.26" upper="2.26" effort="20" velocity="3" />
+    </joint>
+    <link name="link_4">
+        <inertial>
+            <origin xyz="0.0193216464510159 -0.019544728415196 0.0137233315050218" rpy="0 0 0" />
+            <mass value="0.0796841231364609" />
+            <inertia ixx="1.39934433716506E-05" ixy="-6.12052734039665E-15" ixz="1.52385486035105E-07" iyy="1.39805841712531E-05" iyz="-1.52385242496222E-07" izz="2.2419487949179E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_4.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_4.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_4" type="revolute">
+        <origin xyz="0 -0.096500000000001 -0.000999999999999918" rpy="0 0 0" />
+        <parent link="link_3" />
+        <child link="link_4" />
+        <axis xyz="-1 0 0" />
+        <limit lower="-2.26" upper="2.26" effort="20" velocity="3" />
+    </joint>
+    <link name="link_5">
+        <inertial>
+            <origin xyz="-0.0038309592097061 0.0306377695095478 0.0183832381514475" rpy="0 0 0" />
+            <mass value="0.0391972501021704" />
+            <inertia ixx="5.70809325891075E-06" ixy="7.60852230672704E-14" ixz="-3.33782858476785E-09" iyy="9.48081236664893E-06" iyz="-6.86615306245548E-16" izz="6.86600314509222E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_5.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_5.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_5" type="revolute">
+        <origin xyz="0.00900000000003824 -0.0505000000000002 0.0279999999999875" rpy="0 0 3.14159265358979" />
+        <parent link="link_4" />
+        <child link="link_5" />
+        <axis xyz="0 -1 0" />
+        <limit lower="-2.26" upper="2.26" effort="20" velocity="3" />
+    </joint>
+    <link name="link_6">
+        <inertial>
+            <origin xyz="0.0143298157298696 -0.0270465862962762 0.00580746643244909" rpy="0 0 0" />
+            <mass value="0.0123483072583734" />
+            <inertia ixx="1.88444685122979E-06" ixy="2.93149754663778E-09" ixz="5.87996411730137E-10" iyy="6.19405409572236E-07" iyz="-3.29778329044848E-12" izz="2.40711260076694E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_6.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://six_dof_arm/meshes/link_6.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_6" type="revolute">
+        <origin xyz="-0.0140033661195784 0.0319999999999998 0.00298424820030765" rpy="3.14159265358979 0 0" />
+        <parent link="link_5" />
+        <child link="link_6" />
+        <axis xyz="0.00112499294844597 0 0.999999367195233" />
+        <limit lower="-2.26" upper="2.26" effort="20" velocity="3" />
+    </joint>
+    <transmission name="trans_joint_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_4">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_4_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_5">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_5_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_6">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_6">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_6_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>
+
