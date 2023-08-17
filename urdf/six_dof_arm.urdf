@@ -13,7 +13,7 @@
     <joint name="world_to_arm" type="fixed">
       <parent link="world" />
       <child link="base_link" />
-      <origin rpy="0 0 0" xyz="0 0 0" />
+      <origin rpy="0 0 0" xyz="0 0 0.01" />
   </joint>
 
   <link
@@ -111,7 +111,7 @@
     <limit
       lower="-1.57"
       upper="1.57"
-      effort="10"
+      effort="20"
       velocity="3" />
   </joint>
   <link
@@ -169,7 +169,7 @@
     <limit
       lower="-2.26"
       upper="1.04"
-      effort="10"
+      effort="20"
       velocity="3" />
   </joint>
   <link
@@ -227,7 +227,7 @@
     <limit
       lower="-2.53"
       upper="0.61"
-      effort="10"
+      effort="20"
       velocity="3" />
   </joint>
   <link
@@ -285,7 +285,7 @@
     <limit
       lower="-0.87"
       upper="1.74"
-      effort="10"
+      effort="20"
       velocity="3" />
   </joint>
   <link
@@ -343,13 +343,13 @@
     <limit
       lower="-1.57"
       upper="1.57"
-      effort="10"
+      effort="20"
       velocity="3" />
   </joint>
 
     <joint name="joint_7" type="revolute">
     <axis xyz="0 0 1" />
-    <limit effort="10.0" lower="-0.61" upper="0" velocity="5.0" />
+    <limit effort="100.0" lower="-0.61" upper="0" velocity="5.0" />
     <parent link="link_5"/>
     <child link="clawr"/>
     <origin rpy="0 0 -0.31" xyz="0.011 0.034 0.005"/>
@@ -376,7 +376,7 @@
 
     <joint name="joint_8" type="revolute">
     <axis xyz="0 0 1" />
-    <limit effort="10.0" lower="-0.61" upper="0" velocity="5.0" />
+    <limit effort="100.0" lower="-0.61" upper="0" velocity="5.0" />
     <parent link="link_5"/>
     <child link="clawl"/>
     <origin rpy="0 0 0.22" xyz="-0.016 0.030 0"/>
