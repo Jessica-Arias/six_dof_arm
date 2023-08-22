@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter 
-     Using URDF of:     
-     https://github.com/krmcelhinney/servoarm_description
-     https://github.com/yihuling/six_dof_arm_urdf
--->
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="six_dof_arm">
 
-  <link name="world" />
+    <link name="world" />
     <joint name="world_to_arm" type="fixed">
       <parent link="world" />
       <child link="base_link" />
       <origin rpy="0 0 0" xyz="0 0 0.01" />
   </joint>
+
 
   <link
     name="base_link">
@@ -101,7 +98,7 @@
     type="revolute">
     <origin
       xyz="0.0575229584695751 0 0.052"
-      rpy="1.5707963267949 0 -1.5707963267949" />
+      rpy="1.5707963267949 0 1.5707963267949" />
     <parent
       link="base_link" />
     <child
@@ -109,8 +106,8 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-1.57"
-      upper="1.57"
+      lower="-2.355"
+      upper="2.355"
       effort="20"
       velocity="3" />
   </joint>
@@ -167,8 +164,8 @@
     <axis
       xyz="1 0 0" />
     <limit
-      lower="-2.26"
-      upper="1.04"
+      lower="-0.785"
+      upper="1.57"
       effort="20"
       velocity="3" />
   </joint>
@@ -225,8 +222,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      lower="-2.53"
-      upper="0.61"
+      lower="-2.26"
+      upper="2.26"
       effort="20"
       velocity="3" />
   </joint>
@@ -283,8 +280,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      lower="-0.87"
-      upper="1.74"
+      lower="-2.26"
+      upper="2.26"
       effort="20"
       velocity="3" />
   </joint>
@@ -341,62 +338,139 @@
     <axis
       xyz="0 -1 0" />
     <limit
-      lower="-1.57"
-      upper="1.57"
+      lower="-2.26"
+      upper="2.26"
+      effort="20"
+      velocity="3" />
+  </joint>
+  <link
+    name="link_6">
+    <inertial>
+      <origin
+        xyz="0.0143298157298696 -0.0270465862962762 0.00580746643244909"
+        rpy="0 0 0" />
+      <mass
+        value="0.0123483072583734" />
+      <inertia
+        ixx="1.88444685122979E-06"
+        ixy="2.93149754663778E-09"
+        ixz="5.87996411730137E-10"
+        iyy="6.19405409572236E-07"
+        iyz="-3.29778329044848E-12"
+        izz="2.40711260076694E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm/meshes/link_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm/meshes/link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_6"
+    type="revolute">
+    <origin
+      xyz="-0.0140033661195784 0.0319999999999998 0.00298424820030765"
+      rpy="3.14159265358979 0 0" />
+    <parent
+      link="link_5" />
+    <child
+      link="link_6" />
+    <axis
+      xyz="0.00112499294844597 0 0.999999367195233" />
+    <limit
+      lower="-2.26"
+      upper="2.26"
       effort="20"
       velocity="3" />
   </joint>
 
-    <joint name="joint_7" type="revolute">
-    <axis xyz="0 0 1" />
-    <limit effort="100.0" lower="-0.61" upper="0" velocity="5.0" />
-    <parent link="link_5"/>
-    <child link="clawr"/>
-    <origin rpy="0 0 -0.31" xyz="0.011 0.034 0.005"/>
-  </joint>
-  
-
-    <link name="clawr">
-	<visual>
-         <geometry>
-          <mesh filename="package://six_dof_arm/meshes/clawr.stl" scale ="0.0001 0.0001 0.0001"/>
-         </geometry>
-         <origin rpy="0 0 0" xyz="0 0 0"/>
-         <material name="white">
-           <color rgba="1 1 1 1"/>
-         </material>
-        </visual>
-	<collision>
-         <geometry>
-          <mesh filename="package://six_dof_arm/meshes/clawr.stl" scale ="0.0001 0.0001 0.0001"/>
-         </geometry>
-         <origin rpy="0 0 0" xyz="0 0 0"/>
-        </collision>
-  </link>
-
-    <joint name="joint_8" type="revolute">
-    <axis xyz="0 0 1" />
-    <limit effort="100.0" lower="-0.61" upper="0" velocity="5.0" />
-    <parent link="link_5"/>
-    <child link="clawl"/>
-    <origin rpy="0 0 0.22" xyz="-0.016 0.030 0"/>
-    <mimic joint="joint_7" multiplier="-1" offset="0" />
+    <joint name="camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0.8" rpy="0 0 0"/> <!-- Hacia abajo rpy="0 1.57 0" -->
+    <parent link="world"/>
+    <child link="camera_link"/>
   </joint>
 
-  <link name="clawl">
-	<visual>
-         <geometry>
-          <mesh filename="package://six_dof_arm/meshes/clawl.stl" scale ="0.0001 0.0001 0.0001"/>
-         </geometry>
-         <material name="white"/>
-         <origin rpy="0 0 0" xyz="0 0 0"/>
-        </visual>
-	<collision>
-         <geometry>
-          <mesh filename="package://six_dof_arm/meshes/clawl.stl" scale ="0.0001 0.0001 0.0001"/>
-         </geometry>
-         <origin rpy="0 0 0" xyz="0 0 0"/>
-        </collision>
+  <!-- Camera -->
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.2 0.2 0.2"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.2 0.2 0.2"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
   </link>
+
+    <!-- camera -->
+  <gazebo reference="camera_link">
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>cv_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
 
 </robot>
