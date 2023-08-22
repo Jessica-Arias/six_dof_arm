@@ -43,30 +43,25 @@ class Robot6dof(QDialog):
         self.arm.set_named_target("pose_0")
         self.arm.go()
 
-    def Move_to_Pose_1(self):
+    def Move_to_Pose_1_Obj_1(self):
         self.arm.set_goal_tolerance(0.01)
-        self.arm.set_named_target("pose_1")
+        self.arm.set_named_target("pose_1_obj_1")
         self.arm.go()
 
-    def Move_to_Pose_Obj_1(self):
+    def Move_to_Pose_2_Obj_1(self):
         self.arm.set_goal_tolerance(0.01)
-        self.arm.set_named_target("pose_obj_1")
+        self.arm.set_named_target("pose_2_obj_1")
         self.arm.go()
 
-    def Move_to_Pose_Obj_2(self):
+    def Move_to_Pose_1_Obj_2(self):
         self.arm.set_goal_tolerance(0.01)
-        self.arm.set_named_target("pose_obj_2")
+        self.arm.set_named_target("pose_1_obj_2")
         self.arm.go()
 
-    def Grab(self):
-        self.gripper.set_goal_tolerance(0.01)
-        self.gripper.set_named_target("close")
-        self.gripper.go()
-
-    def Open(self):
-        self.gripper.set_goal_tolerance(0.01)
-        self.gripper.set_named_target("open")
-        self.gripper.go()
+    def Move_to_Pose_2_Obj_2(self):
+        self.arm.set_goal_tolerance(0.01)
+        self.arm.set_named_target("pose_2_obj_2")
+        self.arm.go()
 
     def boundig_boxes_callback(self, data):
 
@@ -77,33 +72,29 @@ class Robot6dof(QDialog):
         self.status_robot = data """
 
     def Classification_move(self):  
-        self.Grab()
         self.Move_to_initial_position()
 
         for box in self.bounding_boxes.bounding_boxes:
             print(box.Class)
             if box.Class == "person":
-                self.Open()
-                self.Move_to_Pose_1()
-                self.Grab()
-                self.Move_to_Pose_Obj_1()
-                self.Open()
+                self.Move_to_Pose_1_Obj_1()
+                self.Move_to_Pose_2_Obj_1()
+                self.Move_to_Pose_1_Obj_1()
+                self.Move_to_Pose_2_Obj_1()
                 self.Move_to_initial_position()
-                self.Grab()
                 print("Ready")
                 print("")
-            elif box.Class == "dog":
+            elif box.Class == "truck":
                 self.Open()
-                self.Move_to_Pose_1()
-                self.Grab()
-                self.Move_to_Pose_Obj_2()
-                self.Open()
-                self.Move_to_initial_position()                
-                self.Grab()
+                self.Move_to_Pose_1_Obj_2()
+                self.Move_to_Pose_2_Obj_2()
+                self.Move_to_Pose_1_Obj_2()
+                self.Move_to_Pose_2_Obj_2()
+                self.Move_to_initial_position()
                 print("Ready")
                 print("")
             else:
-                print("No se puede clasificar")
+                print("Sin movimientos programados")
                 print("")
 
 def main():
