@@ -85,7 +85,6 @@ class Robot6dof(QDialog):
                 print("Ready")
                 print("")
             elif box.Class == "truck":
-                self.Open()
                 self.Move_to_Pose_1_Obj_2()
                 self.Move_to_Pose_2_Obj_2()
                 self.Move_to_Pose_1_Obj_2()
